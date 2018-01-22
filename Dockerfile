@@ -15,7 +15,7 @@ RUN apt install -y -t jessie-backports  openjdk-8-jre-headless ca-certificates-j
 
 # Install Logstash
 RUN apt-get install logstash
-COPY /monitoring/config/logstash.yml /etc/logstash/logstash.yml
 RUN mkdir /usr/share/logstash/pipeline
+COPY /monitoring/config/logstash.yml /etc/logstash/logstash.yml
 COPY /monitoring/pipeline/* /usr/share/logstash/pipeline/
 RUN /usr/share/logstash/bin/logstash-plugin install x-pack
